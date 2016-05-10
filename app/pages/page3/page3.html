@@ -1,0 +1,25 @@
+<ion-content class="page3">
+
+	<ion-card *ngFor="#item of items" (click)="itemClicked($event,item)">
+  <div id="hexagon"> 
+    <img src="http://ionicframework.com/dist/preview-app/www/img/nin-live.png"/>
+    </div>
+    <ion-card-content>
+      <h2 class="card-title">
+        {{item.place}}
+      </h2>
+      <h3 class="card-title">
+       <!-- <button [navPush]="pushPage" [navParams]="params"> -->{{item.time}}<!-- </button>  -->
+      </h3>
+      <p>
+        {{item.summary}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name='logo-{{item.host}}' item-left style="color: #55acee"></ion-icon>
+      <ion-label item-center text-center>vs</ion-label>
+      <ion-icon name='logo-{{item.another}}' item-right style="color: #55acee"></ion-icon>
+      <ion-badge item-right>{{item.match}}</ion-badge>
+    </ion-item>
+  </ion-card>
+</ion-content>

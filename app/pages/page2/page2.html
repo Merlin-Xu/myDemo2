@@ -1,0 +1,22 @@
+
+<ion-navbar *navbar hideBackButton class="show-navbar">
+  <ion-title>Thumbnails</ion-title>
+</ion-navbar>
+
+<ion-content class="page2">
+<ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+  <ion-list *ngFor = "#item of items" (click)="itemClicked($event,item)">
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="http://ionicframework.com/dist/preview-app/www/img/thumbnail-{{item.thumbnail}}">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+      <p>{{item.position}}</p>
+      <button clear item-right>View</button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+ 
+
