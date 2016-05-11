@@ -1,5 +1,5 @@
-import {Page} from 'ionic-angular';
-
+import {Page, NavController} from 'ionic-angular';
+import {MemberPage} from '../members/member';
 
 @Page({
   templateUrl: 'build/pages/page2/page2.html',
@@ -7,8 +7,10 @@ import {Page} from 'ionic-angular';
 export class Page2 {
 	searchQuery: string = '';
 	items;
-  constructor() {
+	nav;
+	constructor(nav: NavController) {
 	  this.initializeItems();
+	  this.nav = nav;
   }
   initializeItems() {
 	  this.items = [{ name: "Totoro", thumbnail: "totoro.png", position: "cc" },
@@ -36,5 +38,13 @@ export class Page2 {
 		  }
 		  return false;
 	  })
+  }
+  itemClicked(event, itemData) {
+	  console.log("item clicked");
+	  console.log(event);
+	  console.log(itemData);
+	  this.nav.push(MemberPage, {
+		  host: itemData.name
+	  });
   }
 }

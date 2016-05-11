@@ -18,4 +18,13 @@ export class Page3 {
 		 host: itemData.time
 	 });
 	}
+  //hide nav bar when we enter the page
+  onPageWillEnter() {
+	  document.getElementsByTagName("ion-navbar-section")[0].style.display = "none";
+  }
+
+  //show nav bar when we leave the page
+  onPageDidLeave() {
+	  document.getElementsByTagName("ion-navbar-section")[0].style.display = "block";
+  }
 }
